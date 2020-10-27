@@ -47,3 +47,10 @@ const walls = [
   }),
 ];
 World.add(world, walls);
+
+// STOP WORLD ON DEATH
+function stopWorld() {
+  World.clear(world);
+  Engine.clear(engine);
+  Render.stop(render);
+}

@@ -11,7 +11,7 @@ const isOffScreen = function () {
           scoreCount -= 5;
           showHighscore[0].innerHTML = scoreCount;
         }
-      }  else if (world.bodies[i].position.y < -200) {
+      } else if (world.bodies[i].position.y < -200) {
         World.remove(world, world.bodies[i]);
       }
     }
@@ -44,6 +44,9 @@ Events.on(engine, "collisionEnd", ({ pairs }) => {
       Body.setVelocity(playerBody, { x: 0, y: 0 });
       playerBody.isStatic = false;
       numLives--;
+      if (numLives === 0) {
+        stopWorld();
+      }
     }
   });
 });

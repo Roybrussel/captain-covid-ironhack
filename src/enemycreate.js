@@ -45,18 +45,3 @@ enemies.forEach((enemy, index) => {
     );
   }, index * interval);
 });
-
-// STOP WORLD ON DEATH
-
-// event.preventDefault();
-// World.clear(world);
-// Engine.clear(engine);
-// Render.stop(render);
-// Runner.stop(runner);
-// render.canvas.remove();
-// render.canvas = null;
-// render.context = null;
-// render.textures = {};
-// console.log("reset clicked");
-// document.querySelector(".winner").classList.add("hidden");
-// document.querySelector(".options").classList.remove("hidden");
