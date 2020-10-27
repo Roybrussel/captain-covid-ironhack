@@ -1,4 +1,5 @@
 // OFF-SCREEN DETECTION & DELETION
+
 const isOffScreen = function () {
   let offScreenCheck = setInterval(() => {
     if (world.bodies.length === 3) {
@@ -7,12 +8,17 @@ const isOffScreen = function () {
     for (i = 3; i < world.bodies.length; i++) {
       if (world.bodies[i].position.y > sizeH) {
         World.remove(world, world.bodies[i]);
+        enemiesRemaining--;
         if (scoreCount > 0) {
           scoreCount -= 5;
           showHighscore[0].innerHTML = scoreCount;
         }
       } else if (world.bodies[i].position.y < -200) {
         World.remove(world, world.bodies[i]);
+        enemiesRemaining--;
+      }
+      if (enemiesRemaining <= 0) {
+        stopWorld();
       }
     }
   }, 1000);
@@ -23,21 +29,6 @@ isOffScreen();
 let scoreCount = 0;
 let showHighscore = document.getElementsByClassName("highscore");
 
-// COLLISION LASER <-> VIRUS DETECTION
-Events.on(engine, "collisionStart", ({ pairs }) => {
-  pairs.forEach(({ bodyA, bodyB }) => {
-    if (bodyA.id === 3 && bodyB.id > 3) {
-      playerBody.isStatic = true;
-      World.remove(world, bodyB);
-    } else if (bodyA.id > 3 && bodyB.id > 3) {
-      World.remove(world, bodyA);
-      World.remove(world, bodyB);
-      scoreCount += 5;
-      showHighscore[0].innerHTML = scoreCount;
-    }
-  });
-});
-
 // LIVES
 let life3 = document.getElementsByClassName("life3");
 let life2 = document.getElementsByClassName("life2");
@@ -45,7 +36,27 @@ let life1 = document.getElementsByClassName("life1");
 
 // LAUNCH BUTTON
 let launchBtnIcon = document.getElementsByClassName("rocket-icon");
-let launchBtnText = document.querySelector(".launchText")
+let launchBtnText = document.querySelector(".launchText");
+
+// COLLISION LASER <-> VIRUS DETECTION
+Events.on(engine, "collisionStart", ({ pairs }) => {
+  pairs.forEach(({ bodyA, bodyB }) => {
+    if (bodyA.id === 3 && bodyB.id > 3) {
+      playerBody.isStatic = true;
+      World.remove(world, bodyB);
+      enemiesRemaining--;
+    } else if (bodyA.id > 3 && bodyB.id > 3) {
+      World.remove(world, bodyA);
+      World.remove(world, bodyB);
+      scoreCount += 5;
+      showHighscore[0].innerHTML = scoreCount;
+      enemiesRemaining--;
+    }
+    if (enemiesRemaining <= 0) {
+      stopWorld();
+    }
+  });
+});
 
 // COLLISION PLAYER <-> VIRUS DETECTION
 Events.on(engine, "collisionEnd", ({ pairs }) => {

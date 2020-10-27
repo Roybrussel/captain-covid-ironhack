@@ -32,6 +32,7 @@ for (let i = 0; i < numEnemies; i++) {
     })
   );
 }
+let enemiesRemaining = enemies.length;
 
 // ADD ENEMIES TO WORLD AND LAUNCH ATTACK
 enemies.forEach((enemy, index) => {
