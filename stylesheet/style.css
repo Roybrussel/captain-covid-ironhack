@@ -5,7 +5,7 @@ BEIGE: #decdc3
 GREY/WHITE: #e5e5e5 */
 
 canvas {
-    background-color: #6491cc !important;
+    background-color: #2d4059 !important;
     width: 1000px !important;
     height: 450px !important;
     border: 10px solid #000;
@@ -17,6 +17,8 @@ h1 {
 }
 
 .launch {
+    width: 205px !important;
+    height: 65px !important;
     margin-top: 25px !important;
     font-size: 2em !important;
     position: absolute;
