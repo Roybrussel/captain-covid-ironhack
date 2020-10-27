@@ -24,6 +24,9 @@ const render = Render.create({
 });
 Render.run(render);
 Runner.run(Runner.create(), engine);
+const launchBtn = document.querySelector(".launch");
+let launchText = document.querySelector(".launchText");
+launchBtn.addEventListener("click", (event) => {});
 let sizeW = render.options.width;
 let sizeH = render.options.height;
 let oddEvenCounter = 0;
