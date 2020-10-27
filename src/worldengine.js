@@ -53,4 +53,18 @@ function stopWorld() {
   World.clear(world);
   Engine.clear(engine);
   Render.stop(render);
+  if (scoreCount === 0) {
+    alert(`You didn't score any points? Fake news!`);
+  }
+  if (scoreCount > 0 && scoreCount < 100) {
+    alert(
+      `Lockdown must be getting to your head. You only scored ${scoreCount} points!`
+    );
+  } else if (scoreCount > 100 && scoreCount < 200) {
+    alert(`Nice social distancing skills! You scored ${scoreCount} points!`);
+  } else {
+    alert(
+      `Wow, your vaccine delivery skills are off the charts! You scored ${scoreCount} points!`
+    );
+  }
 }
