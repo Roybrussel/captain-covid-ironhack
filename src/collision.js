@@ -7,16 +7,21 @@ const isOffScreen = function () {
     for (i = 3; i < world.bodies.length; i++) {
       if (world.bodies[i].position.y > sizeH) {
         World.remove(world, world.bodies[i]);
-        if (scoreCount >= 0) {
+        if (scoreCount > 0) {
           scoreCount -= 5;
+          showHighscore[0].innerHTML = scoreCount;
         }
-      } else if (world.bodies[i].position.y < -200) {
+      }  else if (world.bodies[i].position.y < -200) {
         World.remove(world, world.bodies[i]);
       }
     }
   }, 1000);
 };
 isOffScreen();
+
+// SCORE COUNT
+let scoreCount = 0;
+let showHighscore = document.getElementsByClassName("highscore");
 
 // COLLISION DETECTION
 Events.on(engine, "collisionStart", ({ pairs }) => {
@@ -28,7 +33,7 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
       World.remove(world, bodyA);
       World.remove(world, bodyB);
       scoreCount += 5;
-      return scoreCount;
+      showHighscore[0].innerHTML = scoreCount;
     }
   });
 });
