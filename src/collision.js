@@ -11,7 +11,7 @@ const isOffScreen = function () {
           scoreCount -= 5;
           showHighscore[0].innerHTML = scoreCount;
         }
-      }  else if (world.bodies[i].position.y < -200) {
+      } else if (world.bodies[i].position.y < -200) {
         World.remove(world, world.bodies[i]);
       }
     }
@@ -65,6 +65,7 @@ Events.on(engine, "collisionEnd", ({ pairs }) => {
         life1[0].classList = "far fa-star life1";
         launchBtnIcon[0].classList = "fas fa-skull rocket-icon";
         launchBtnText.innerText = "RETRY";
+        stopWorld();
       }
     }
   });

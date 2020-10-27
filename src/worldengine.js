@@ -24,6 +24,9 @@ const render = Render.create({
 });
 Render.run(render);
 Runner.run(Runner.create(), engine);
+const launchBtn = document.querySelector(".launch");
+let launchText = document.querySelector(".launchText");
+launchBtn.addEventListener("click", (event) => {});
 let sizeW = render.options.width;
 let sizeH = render.options.height;
 let oddEvenCounter = 0;
@@ -44,3 +47,10 @@ const walls = [
   }),
 ];
 World.add(world, walls);
+
+// STOP WORLD ON DEATH
+function stopWorld() {
+  World.clear(world);
+  Engine.clear(engine);
+  Render.stop(render);
+}
