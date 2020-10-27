@@ -25,6 +25,11 @@ const isOffScreen = function () {
 };
 isOffScreen();
 
+// MUSIC FILES
+var mainTheme = new Audio("sound/Captain Covid Main Theme.mp3");
+var levelUpSound = new Audio("sound/Level Up.mp3");
+var gameOverSound = new Audio("sound/Game Over.mp3");
+
 // SCORE COUNT
 let scoreCount = 0;
 let showHighscore = document.getElementsByClassName("highscore");
@@ -73,6 +78,8 @@ Events.on(engine, "collisionEnd", ({ pairs }) => {
         life2[0].classList = "far fa-star life2";
       }
       if (numLives === 0) {
+        mainTheme.pause();
+        gameOverSound.play();
         life1[0].classList = "far fa-star life1";
         launchBtnIcon[0].classList = "fas fa-skull rocket-icon";
         launchBtnText.innerText = "RETRY";

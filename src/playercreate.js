@@ -5,8 +5,8 @@ const playerBody = Bodies.circle(sizeW / 2, sizeH - 80, sizeW / 60, {
     render: {
         sprite: {
             texture: "/images/player.png",
-            xScale: 0.1,
-            yScale: 0.1
+            xScale: 0.15,
+            yScale: 0.15
         },
     },
 });
