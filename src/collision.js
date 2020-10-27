@@ -23,7 +23,7 @@ isOffScreen();
 let scoreCount = 0;
 let showHighscore = document.getElementsByClassName("highscore");
 
-// COLLISION DETECTION
+// COLLISION LASER <-> VIRUS DETECTION
 Events.on(engine, "collisionStart", ({ pairs }) => {
   pairs.forEach(({ bodyA, bodyB }) => {
     if (bodyA.id === 3 && bodyB.id > 3) {
@@ -37,6 +37,17 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
     }
   });
 });
+
+// LIVES
+let life3 = document.getElementsByClassName("life3");
+let life2 = document.getElementsByClassName("life2");
+let life1 = document.getElementsByClassName("life1");
+
+// LAUNCH BUTTON
+let launchBtnIcon = document.getElementsByClassName("rocket-icon");
+let launchBtnText = document.querySelector(".launchText")
+
+// COLLISION PLAYER <-> VIRUS DETECTION
 Events.on(engine, "collisionEnd", ({ pairs }) => {
   pairs.forEach(({ bodyA, bodyB }) => {
     if (bodyA.id === 3 && bodyB.id > 3) {
@@ -44,6 +55,17 @@ Events.on(engine, "collisionEnd", ({ pairs }) => {
       Body.setVelocity(playerBody, { x: 0, y: 0 });
       playerBody.isStatic = false;
       numLives--;
+      if (numLives === 2) {
+        life3[0].classList = "far fa-star life3";
+      }
+      if (numLives === 1) {
+        life2[0].classList = "far fa-star life2";
+      }
+      if (numLives === 0) {
+        life1[0].classList = "far fa-star life1";
+        launchBtnIcon[0].classList = "fas fa-skull rocket-icon";
+        launchBtnText.innerText = "RETRY";
+      }
     }
   });
 });
