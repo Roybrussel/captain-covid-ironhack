@@ -23,11 +23,19 @@ document.addEventListener("keydown", (event) => {
     } else if (event.code === "ArrowRight") {
         Body.setVelocity(playerBody, { x: x + xMove, y: 0 });
     } else if (event.code === "Space") {
-        let ammo = Bodies.circle(
+        let ammo = Bodies.circle(playerBody.position.x,
+            playerBody.position.y - 50,
+            sizeW / 200, {
+                render: {
+                    sprite: {
+                        texture: "/images/bullet.png",
+                        xScale: 0.05,
+                        yScale: 0.05
+                    },
+                },
 
-            playerBody.position.x,
-            playerBody.position.y - 110,
-            sizeW / 200
+            },
+
         );
         ammo.frictionAir = 0;
         Body.setVelocity(ammo, { x: 0, y: -(sizeH / 40) });

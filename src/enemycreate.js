@@ -21,7 +21,7 @@ const enemies = [];
 for (let i = 0; i < numEnemies; i++) {
     oddEvenCounter++;
     enemies.push(
-        Bodies.circle(playArea(), 0, sizeW / 30, {
+        Bodies.circle(playArea(), 0, sizeW / 50, {
             render: {
                 sprite: {
                     texture: "/images/covid.png",
