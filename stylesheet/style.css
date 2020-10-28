@@ -8,22 +8,26 @@ canvas {
     background-color: #2d4059 !important;
     width: 1000px !important;
     height: 450px !important;
-    border: 10px solid #000;
+    border-bottom: 10px solid #000;
+    border-left: 10px solid #000;
+    border-right: 10px solid #000;
 }
 
 h1 {
     font-family: 'Revalia', cursive;
     font-size: 75px !important;
 }
-.livesholder {
-    position: absolute;
-    top: 108px;
-    left: 140px;
-}
-.scoreholder {
-    position: absolute;
-    top: 108px;
-    right: 140px;
+.topredholder {
+    height: 70px;
+    width: 1000px;
+    background-color: #dc3545;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-top: 10px solid #000;
+    border-left: 10px solid #000;
+    border-right: 10px solid #000;
 }
 .btnholder {
     position: relative;
@@ -40,22 +44,24 @@ h1 {
 
 .lives {
     width: 135px !important;
-    height: 60px !important;
+    height: 100%;
     /* margin-top: 25px !important; */
     font-size: 2em !important;
     /* position: absolute !important; */
     /* margin-left: 26px; */
     pointer-events: none;
+    padding-left: 1rem;
 }
 
 .highscore {
     width: 135px !important;
-    height: 60px !important;
+    height: 100%;
     /* margin-top: 25px !important; */
     font-size: 2em !important;
     /* position: absolute !important; */
     /* margin-left: 837px; */
     pointer-events: none;
+    padding-right: 1rem;
 }
 
 .container {
