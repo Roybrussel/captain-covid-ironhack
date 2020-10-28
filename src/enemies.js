@@ -30,7 +30,7 @@ for (let i = 0; i < numEnemies; i++) {
     Bodies.circle(playArea(), 0, sizeW / 40, {
       render: {
         sprite: {
-          texture: "/images/covid.png",
+          texture: "images/covid.png",
           xScale: 0.5,
           yScale: 0.5,
         },
