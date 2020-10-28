@@ -13,17 +13,20 @@ canvas {
 
 h1 {
     font-family: 'Revalia', cursive;
-    font-size: 5em !important;
+    font-size: 75px !important;
 }
-
+.btnholder {
+    position: relative;
+    top: 600px;
+    display: flex;
+    justify-content: center;
+}
 .launch {
     width: 205px !important;
     height: 65px !important;
-    margin-top: 25px !important;
     font-size: 2em !important;
     position: absolute;
-    margin-top: 475px !important;
-    margin-left: 400px !important;
+    top: 580px;
 }
 
 .lives {

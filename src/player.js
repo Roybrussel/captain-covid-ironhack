@@ -1,6 +1,6 @@
 // PLAYER: Create new player and add to environment
 
-const playerBody = Bodies.circle(sizeW / 2, sizeH - 80, sizeW / 60, {
+const playerBody = Bodies.circle(sizeW / 2, sizeH - 80, sizeW / 50, {
   render: {
     sprite: {
       texture: "images/player.png",
@@ -13,10 +13,8 @@ playerBody.frictionAir = 0;
 playerBody.friction = 0;
 World.add(world, playerBody);
 
-
-
 // PLAYER MOVEMENT
-let xMove = sizeW / 60;
+let xMove = sizeW / 100;
 document.addEventListener("keydown", (event) => {
   let { x, y } = playerBody.velocity;
   if (event.code === "ArrowLeft") {
@@ -53,13 +51,13 @@ document.addEventListener("keyup", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.code === "KeyC") {
-    let insertedCheatcode = prompt("Please enter cheatcode")
+    let insertedCheatcode = prompt("Please enter cheatcode");
     if (insertedCheatcode === "donald") {
       djTrump.play();
-      playerBody.render.sprite.texture = "images/trump.png"
-      playerBody.render.sprite.xScale = 0.1
-      playerBody.render.sprite.yScale = 0.1
+      playerBody.render.sprite.texture = "images/trump.png";
+      playerBody.render.sprite.xScale = 0.1;
+      playerBody.render.sprite.yScale = 0.1;
       laserShot = new Audio("sound/bing.mp3");
-  }
+    }
   }
 });
