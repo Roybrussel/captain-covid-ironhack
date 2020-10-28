@@ -1,4 +1,6 @@
-//  LEVELS
+//  LEVELS/
+// let difl = document.getElementById("dlevel").value;
+// let difficulty = difl;
 let difficulty = 1;
 let numLives = 3;
 let interval, numEnemies, enemiesForce;
@@ -23,32 +25,36 @@ else if (difficulty === 2) {
 }
 
 // CREATE ENEMIES
-const enemies = [];
-for (let i = 0; i < numEnemies; i++) {
-  oddEvenCounter++;
-  enemies.push(
-    Bodies.circle(playArea(), 0, sizeW / 40, {
-      render: {
-        sprite: {
-          texture: "images/covid.png",
-          xScale: 0.5,
-          yScale: 0.5,
+let enemyBuilder = function () {
+  for (let i = 0; i < numEnemies; i++) {
+    oddEvenCounter++;
+    enemies.push(
+      Bodies.circle(playArea(), 0, sizeW / 40, {
+        render: {
+          sprite: {
+            texture: "images/covid.png",
+            xScale: 0.5,
+            yScale: 0.5,
+          },
         },
-      },
-    })
-  );
-}
-let enemiesRemaining = enemies.length;
+      })
+    );
+  }
+  enemiesRemaining = enemies.length;
+  enemyLauncher();
+};
 
 // ADD ENEMIES TO WORLD AND LAUNCH ATTACK
-enemies.forEach((enemy, index) => {
-  enemy.frictionAir = 0;
-  setTimeout(() => {
-    World.add(world, enemy);
-    Body.applyForce(
-      enemy,
-      { x: enemy.position.x, y: enemy.position.y },
-      { x: 0, y: (sizeW / 100) * enemiesForce }
-    );
-  }, index * interval);
-});
+let enemyLauncher = function () {
+  enemies.forEach((enemy, index) => {
+    enemy.frictionAir = 0;
+    setTimeout(() => {
+      World.add(world, enemy);
+      Body.applyForce(
+        enemy,
+        { x: enemy.position.x, y: enemy.position.y },
+        { x: 0, y: (sizeW / 100) * enemiesForce }
+      );
+    }, index * interval);
+  });
+};
