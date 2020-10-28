@@ -57,6 +57,7 @@ const {
     World.clear(world);
     Engine.clear(engine);
     Render.stop(render);
+    
     // PLAYER REACHED END OF GAME
     if (enemiesRemaining <= 0) {
       if (scoreCount === 0) {

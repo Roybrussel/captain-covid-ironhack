@@ -31,7 +31,7 @@ h1 {
 }
 .btnholder {
     position: relative;
-    top: 475px;
+    top: 465px;
     display: flex;
     justify-content: center;
 }
@@ -40,6 +40,14 @@ h1 {
     height: 65px !important;
     font-size: 2em !important;
     position: absolute;
+}
+
+.volume {
+    font-size: 2em;
+    color: #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .lives {
@@ -66,5 +74,4 @@ h1 {
 
 .container {
     text-align: center;
-    padding: 0 !important;
 }
