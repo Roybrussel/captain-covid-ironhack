@@ -1,5 +1,4 @@
 // PLAYER: Create new player and add to environment
-
 const playerBody = Bodies.circle(sizeW / 2, sizeH - 80, sizeW / 60, {
   render: {
     sprite: {
