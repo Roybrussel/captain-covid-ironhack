@@ -24,14 +24,8 @@ const render = Render.create({
 });
 Render.run(render);
 Runner.run(Runner.create(), engine);
-const launchBtn = document.querySelector(".launch");
-let launchText = document.querySelector(".launchText");
-launchBtn.addEventListener("click", (event) => {
-  // mainTheme.play();
-});
 let sizeW = render.options.width;
 let sizeH = render.options.height;
-let oddEvenCounter = 0;
 let playArea = () => {
   let rand = Math.random();
   return oddEvenCounter % 2 === 0
@@ -47,16 +41,33 @@ const walls = [
   Bodies.rectangle(sizeW + 250, sizeH / 2, 500, sizeH * 2, {
     isStatic: true,
   }),
+  Bodies.rectangle(sizeW / 2, sizeH + 250, sizeW, 500),
+  {
+    isStatic: true,
+  },
 ];
 World.add(world, walls);
 
+// Initialize enemies;
+let enemies = [];
+let enemiesRemaining;
+let oddEvenCounter = 0;
+
+// LAUNCH BUTTON FUNCTIONS
+let launchBtn = document.querySelector(".launch");
+let launchBtnIcon = document.getElementsByClassName("rocket-icon");
+let launchBtnText = document.querySelector(".launchText");
+
+launchBtn.addEventListener("click", (event) => {
+  enemyBuilder();
+});
+
 // STOP WORLD ON DEATH
-let offScreenCheck = 0;
 function stopWorld() {
   World.clear(world);
   Engine.clear(engine);
   Render.stop(render);
-  // PLAYER REACHED END OF GAME
+  // IF PLAYER REACHED END OF GAME
   if (enemiesRemaining <= 0) {
     if (scoreCount === 0) {
       alert(
@@ -70,7 +81,7 @@ function stopWorld() {
       );
     }
 
-    // PLAYER DID NOT REACH END OF GAME
+    // IF PLAYER DID NOT REACH END OF GAME
   } else if (enemiesRemaining > 0) {
     if (scoreCount === 0) {
       alert(`GAME OVER! You didn't score any points? Fake news!`);
@@ -88,5 +99,4 @@ function stopWorld() {
       );
     }
   }
-  clearInterval(offScreenCheck);
 }
