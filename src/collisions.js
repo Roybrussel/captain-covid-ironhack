@@ -28,6 +28,8 @@ isOffScreen();
 var mainTheme = new Audio("sound/Captain Covid Main Theme.mp3");
 var levelUpSound = new Audio("sound/Level Up.mp3");
 var gameOverSound = new Audio("sound/Game Over.mp3");
+var laserShot = new Audio("sound/Laser.mp3");
+var djTrump = new Audio("sound/DJTRUMP.mp3");
 
 // SCORE COUNT
 let scoreCount = 0;
