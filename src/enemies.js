@@ -31,8 +31,8 @@ for (let i = 0; i < numEnemies; i++) {
       render: {
         sprite: {
           texture: "images/covid.png",
-          xScale: 0.5,
-          yScale: 0.5,
+          xScale: 0.7,
+          yScale: 0.7,
         },
       },
     })
@@ -42,15 +42,15 @@ let enemiesRemaining = enemies.length;
 
 // ADD ENEMIES TO WORLD AND LAUNCH ATTACK
 function enemyStart() {
-enemies.forEach((enemy, index) => {
-  enemy.frictionAir = 0;
-  setTimeout(() => {
-    World.add(world, enemy);
-    Body.applyForce(
-      enemy,
-      { x: enemy.position.x, y: enemy.position.y },
-      { x: 0, y: (sizeW / 100) * enemiesForce }
-    );
-  }, index * interval);
-});
-};
+  enemies.forEach((enemy, index) => {
+    enemy.frictionAir = 0;
+    setTimeout(() => {
+      World.add(world, enemy);
+      Body.applyForce(
+        enemy,
+        { x: enemy.position.x, y: enemy.position.y },
+        { x: 0, y: (sizeW / 100) * enemiesForce }
+      );
+    }, index * interval);
+  });
+}
