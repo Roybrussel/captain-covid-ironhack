@@ -1,7 +1,7 @@
 // MUSIC FILES
-var mainTheme = new Audio("sound/captaincovidtheme.mp3");
-var levelUpSound = new Audio("sound/levelup.mp3");
-var gameOverSound = new Audio("sound/gameover.mp3");
+var mainTheme = new Audio("sound/Captain Covid Main Theme.mp3");
+var levelUpSound = new Audio("sound/Level Up.mp3");
+var gameOverSound = new Audio("sound/Game Over.mp3");
 
 // SCORE COUNT
 let scoreCount = 0;
