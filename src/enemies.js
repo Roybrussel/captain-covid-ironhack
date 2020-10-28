@@ -1,18 +1,24 @@
-//  LEVEL
-//  LEVEL 1
-let numLives = 3;
-let interval = 1500;
+//  LEVELS
 let difficulty = 1;
-let numEnemies = 75;
-let enemiesForce = 0.0009;
-// HIGHER DIFFICULTIES
-if (difficulty === 2) {
+let numLives = 3;
+let interval, numEnemies, enemiesForce;
+
+// LOW DIFFICULTY
+if (difficulty === 1) {
+  interval = 1500;
+  numEnemies = 50;
+  enemiesForce = 0.0009;
+}
+// MEDIUM DIFFICULTY
+else if (difficulty === 2) {
   interval = 1000;
-  numEnemies = 125;
+  numEnemies = 100;
   enemiesForce = 0.0011;
+
+  // HIGH DIFFICULTY
 } else if (difficulty === 3) {
   interval = 750;
-  numEnemies = 200;
+  numEnemies = 150;
   enemiesForce = 0.0013;
 }
 
