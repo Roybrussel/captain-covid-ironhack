@@ -1,6 +1,6 @@
 // PLAYER: Create new player and add to environment
 
-const playerBody = Bodies.circle(sizeW / 2, sizeH - 80, sizeW / 50, {
+const playerBody = Bodies.circle(sizeW / 2, sizeH - 80, sizeW / 30, {
   render: {
     sprite: {
       texture: "images/player.png",
@@ -27,7 +27,7 @@ document.addEventListener("keydown", (event) => {
     let ammo = Bodies.circle(
       playerBody.position.x,
       playerBody.position.y - 50,
-      sizeW / 200,
+      sizeW / 120,
       {
         render: {
           sprite: {
