@@ -1,24 +1,23 @@
 // OFF-SCREEN DETECTION & DELETION
-
 const isOffScreen = function () {
   let offScreenCheck = setInterval(() => {
-    if (world.bodies.length === 3) {
-      clearInterval(offScreenCheck);
-    }
     for (i = 3; i < world.bodies.length; i++) {
+      // REMOVE VIRUS FROM WORLD AFTER REACHING BOTTOM OF SCREEN
       if (world.bodies[i].position.y > sizeH) {
         World.remove(world, world.bodies[i]);
         enemiesRemaining--;
         if (scoreCount > 0) {
           scoreCount -= 5;
           showHighscore[0].innerHTML = scoreCount;
+          // INSERT SCORECOUNT BUTTON FLASH HERE FOR -5 POINTS
         }
-      } else if (world.bodies[i].position.y < -200) {
-        World.remove(world, world.bodies[i]);
-        enemiesRemaining--;
+        if (enemiesRemaining <= 0) {
+          stopWorld();
+        }
       }
-      if (enemiesRemaining <= 0) {
-        stopWorld();
+      // REMOVE AMMO FROM WORLD AFTER REACHING TOP OF SCREEN
+      if (world.bodies[i].position.y < -200) {
+        World.remove(world, world.bodies[i]);
       }
     }
   }, 1000);
@@ -43,7 +42,8 @@ let life1 = document.getElementsByClassName("life1");
 let launchBtnIcon = document.getElementsByClassName("rocket-icon");
 let launchBtnText = document.querySelector(".launchText");
 
-// COLLISION LASER <-> VIRUS DETECTION
+// START OF COLLISION:
+// COLLISION OF SHIP (ID 3) WITH VIRUS (ID > 3)
 Events.on(engine, "collisionStart", ({ pairs }) => {
   pairs.forEach(({ bodyA, bodyB }) => {
     if (bodyA.id === 3 && bodyB.id > 3) {
@@ -51,19 +51,21 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
       World.remove(world, bodyB);
       enemiesRemaining--;
     } else if (bodyA.id > 3 && bodyB.id > 3) {
+      // COLLISION NEEDLE & VIRUS
       World.remove(world, bodyA);
       World.remove(world, bodyB);
       scoreCount += 5;
       showHighscore[0].innerHTML = scoreCount;
       enemiesRemaining--;
-    }
-    if (enemiesRemaining <= 0) {
-      stopWorld();
+      if (enemiesRemaining <= 0) {
+        stopWorld();
+      }
     }
   });
 });
 
-// COLLISION PLAYER <-> VIRUS DETECTION
+// END OF COLLISION
+// COLLISION OF SHIP (ID 3) WITH VIRUS (ID > 3)
 Events.on(engine, "collisionEnd", ({ pairs }) => {
   pairs.forEach(({ bodyA, bodyB }) => {
     if (bodyA.id === 3 && bodyB.id > 3) {

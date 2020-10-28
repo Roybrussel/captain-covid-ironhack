@@ -27,7 +27,7 @@ Runner.run(Runner.create(), engine);
 const launchBtn = document.querySelector(".launch");
 let launchText = document.querySelector(".launchText");
 launchBtn.addEventListener("click", (event) => {
-  mainTheme.play();
+  // mainTheme.play();
 });
 let sizeW = render.options.width;
 let sizeH = render.options.height;
@@ -51,22 +51,32 @@ const walls = [
 World.add(world, walls);
 
 // STOP WORLD ON DEATH
+let offScreenCheck = 0;
 function stopWorld() {
   World.clear(world);
   Engine.clear(engine);
   Render.stop(render);
-  if (scoreCount === 0) {
-    alert(`You didn't score any points? Fake news!`);
-  }
-  if (scoreCount > 0 && scoreCount < 100) {
+  if (enemiesRemaining <= 0) {
     alert(
-      `Lockdown must be getting to your head. You only scored ${scoreCount} points!`
+      `PANDEMIC-FIGHTING SKILLS FOR THE WIN!!! You scored ${scoreCount} points!`
     );
-  } else if (scoreCount > 100 && scoreCount < 200) {
-    alert(`Nice social distancing skills! You scored ${scoreCount} points!`);
-  } else {
-    alert(
-      `Wow, your vaccine delivery skills are off the charts! You scored ${scoreCount} points!`
-    );
+  } else if (enemiesRemaining > 0) {
+    if (scoreCount === 0) {
+      alert(`GAME OVER! You didn't score any points? Fake news!`);
+    }
+    if (scoreCount > 0 && scoreCount < 100) {
+      alert(
+        `GAME OVER! Lockdown must be getting to your head. You only scored ${scoreCount} points!`
+      );
+    } else if (scoreCount > 100 && scoreCount < 200) {
+      alert(
+        `GAME OVER! Nice social distancing skills! You scored ${scoreCount} points!`
+      );
+    } else if (scoreCount > 200) {
+      alert(
+        `GAME OVER! Wow, your vaccine delivery skills are off the charts! You scored ${scoreCount} points!`
+      );
+    }
   }
+  clearInterval(offScreenCheck);
 }
