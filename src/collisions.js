@@ -31,6 +31,7 @@ var gameOverSound = new Audio("sound/gameover.mp3");
 var laserShot = new Audio("sound/laser.mp3")
 var djTrump = new Audio("sound/djtrump.mp3")
 
+
 // SCORE COUNT
 let scoreCount = 0;
 let showHighscore = document.getElementsByClassName("highscore");
