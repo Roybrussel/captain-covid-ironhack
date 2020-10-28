@@ -1,4 +1,5 @@
 // PLAYER: Create new player and add to environment
+
 const playerBody = Bodies.circle(sizeW / 2, sizeH - 80, sizeW / 60, {
   render: {
     sprite: {
@@ -12,6 +13,8 @@ playerBody.frictionAir = 0;
 playerBody.friction = 0;
 World.add(world, playerBody);
 
+
+
 // PLAYER MOVEMENT
 let xMove = sizeW / 60;
 document.addEventListener("keydown", (event) => {
@@ -21,6 +24,7 @@ document.addEventListener("keydown", (event) => {
   } else if (event.code === "ArrowRight") {
     Body.setVelocity(playerBody, { x: x + xMove, y: 0 });
   } else if (event.code === "Space") {
+    event.preventDefault();
     laserShot.play();
     let ammo = Bodies.circle(
       playerBody.position.x,
@@ -55,7 +59,7 @@ document.addEventListener("keydown", (event) => {
       playerBody.render.sprite.texture = "images/trump.png"
       playerBody.render.sprite.xScale = 0.1
       playerBody.render.sprite.yScale = 0.1
-      laserShot = new Audio("sound/Bing.mp3");
+      laserShot = new Audio("sound/bing.mp3");
   }
   }
 });

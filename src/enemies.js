@@ -1,57 +1,56 @@
-//  LEVELS/
-// let difficulty = 1;
+//  LEVELS
+let difficulty = 1;
 let numLives = 3;
 let interval, numEnemies, enemiesForce;
 
 // LOW DIFFICULTY
 if (difficulty === 1) {
-    interval = 1500;
-    numEnemies = 50;
-    enemiesForce = 0.0009;
+  interval = 1500;
+  numEnemies = 50;
+  enemiesForce = 0.0009;
 }
 // MEDIUM DIFFICULTY
 else if (difficulty === 2) {
-    interval = 1000;
-    numEnemies = 100;
-    enemiesForce = 0.0011;
+  interval = 1000;
+  numEnemies = 100;
+  enemiesForce = 0.0011;
 
-    // HIGH DIFFICULTY
+  // HIGH DIFFICULTY
 } else if (difficulty === 3) {
-    interval = 750;
-    numEnemies = 150;
-    enemiesForce = 0.0013;
+  interval = 750;
+  numEnemies = 150;
+  enemiesForce = 0.0013;
 }
 
 // CREATE ENEMIES
-let enemyBuilder = function() {
-    for (let i = 0; i < numEnemies; i++) {
-        oddEvenCounter++;
-        enemies.push(
-            Bodies.circle(playArea(), 0, sizeW / 40, {
-                render: {
-                    sprite: {
-                        texture: "images/covid.png",
-                        xScale: 0.5,
-                        yScale: 0.5,
-                    },
-                },
-            })
-        );
-    }
-    enemiesRemaining = enemies.length;
-    enemyLauncher();
-
-};
+const enemies = [];
+for (let i = 0; i < numEnemies; i++) {
+  oddEvenCounter++;
+  enemies.push(
+    Bodies.circle(playArea(), 0, sizeW / 40, {
+      render: {
+        sprite: {
+          texture: "images/covid.png",
+          xScale: 0.5,
+          yScale: 0.5,
+        },
+      },
+    })
+  );
+}
+let enemiesRemaining = enemies.length;
 
 // ADD ENEMIES TO WORLD AND LAUNCH ATTACK
-let enemyLauncher = function() {
-    enemies.forEach((enemy, index) => {
-        enemy.frictionAir = 0;
-        setTimeout(() => {
-            World.add(world, enemy);
-            Body.applyForce(
-                enemy, { x: enemy.position.x, y: enemy.position.y }, { x: 0, y: (sizeW / 100) * enemiesForce }
-            );
-        }, index * interval);
-    });
+function enemyStart() {
+enemies.forEach((enemy, index) => {
+  enemy.frictionAir = 0;
+  setTimeout(() => {
+    World.add(world, enemy);
+    Body.applyForce(
+      enemy,
+      { x: enemy.position.x, y: enemy.position.y },
+      { x: 0, y: (sizeW / 100) * enemiesForce }
+    );
+  }, index * interval);
+});
 };
