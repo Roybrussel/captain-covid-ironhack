@@ -56,15 +56,25 @@ function stopWorld() {
   World.clear(world);
   Engine.clear(engine);
   Render.stop(render);
+  // PLAYER REACHED END OF GAME
   if (enemiesRemaining <= 0) {
-    alert(
-      `PANDEMIC-FIGHTING SKILLS FOR THE WIN!!! You scored ${scoreCount} points!`
-    );
+    if (scoreCount === 0) {
+      alert(
+        `YOU'VE BEEN WORKING FROM HOME TOO LONG! You made it to the end but didn't score any points!`
+      );
+    } else if (scoreCount > 0 && scoreCount < 200) {
+      alert(`YOU MADE IT TO THE END!!! You scored ${scoreCount} points!`);
+    } else if (scoreCount > 200) {
+      alert(
+        `PANDEMIC-FIGHTING SKILLS FOR THE WIN!!! You scored ${scoreCount} points!`
+      );
+    }
+
+    // PLAYER DID NOT REACH END OF GAME
   } else if (enemiesRemaining > 0) {
     if (scoreCount === 0) {
       alert(`GAME OVER! You didn't score any points? Fake news!`);
-    }
-    if (scoreCount > 0 && scoreCount < 100) {
+    } else if (scoreCount > 0 && scoreCount < 100) {
       alert(
         `GAME OVER! Lockdown must be getting to your head. You only scored ${scoreCount} points!`
       );
