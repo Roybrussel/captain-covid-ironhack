@@ -7,7 +7,7 @@ GREY/WHITE: #e5e5e5 */
 canvas {
     background-color: #2d4059 !important;
     width: 1000px !important;
-    height: 450px !important;
+    height: 440px !important;
     border-bottom: 10px solid #000;
     border-left: 10px solid #000;
     border-right: 10px solid #000;
@@ -31,7 +31,7 @@ h1 {
 }
 .btnholder {
     position: relative;
-    top: 465px;
+    top: 446px;
     display: flex;
     justify-content: center;
 }
