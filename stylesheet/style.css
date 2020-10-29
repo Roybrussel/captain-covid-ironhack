@@ -12,11 +12,23 @@ canvas {
     border-left: 10px solid #000;
     border-right: 10px solid #000;
 }
-
 h1 {
-    font-family: 'Revalia', cursive;
     font-size: 75px !important;
 }
+h1, h2, h3 {
+    font-family: 'Revalia', cursive;
+    text-align: center;
+}
+h3 {
+    padding: 1rem 0rem;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .topredholder {
     height: 70px;
     width: 1000px;
@@ -29,17 +41,20 @@ h1 {
     border-left: 10px solid #000;
     border-right: 10px solid #000;
 }
+
 .btnholder {
-    position: relative;
-    top: 446px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
 .launch {
     width: 205px !important;
     height: 65px !important;
     font-size: 2em !important;
-    position: absolute;
+}
+.level {
+    padding: 1rem 0rem;
 }
 
 .volume {
@@ -50,28 +65,60 @@ h1 {
     align-items: center;
 }
 
+.volume:hover {
+    color: #000;
+}
+
 .lives {
     width: 135px !important;
     height: 100%;
-    /* margin-top: 25px !important; */
     font-size: 2em !important;
-    /* position: absolute !important; */
-    /* margin-left: 26px; */
     pointer-events: none;
     padding-left: 1rem;
 }
 
-.highscore {
+.highscore2 {
     width: 135px !important;
     height: 100%;
-    /* margin-top: 25px !important; */
     font-size: 2em !important;
-    /* position: absolute !important; */
-    /* margin-left: 837px; */
     pointer-events: none;
     padding-right: 1rem;
 }
-
 .container {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+}
+
+.responsive-container {
+    display: none;
+}
+
+.story {
+    padding: 1.5rem 0rem;
+    width: 55vw;
+}
+
+@media (max-width: 1200px) {
+    canvas {
+        display: none;
+    }
+    .main-container {
+        display: none;
+    }
+    .responsive-container {
+        height: 400px;
+        width: 360px !important;
+        margin-top: 50px;
+        border-radius: 10px;
+        display: flex;
+        background-color: #ea5455;
+        color: #e5e5e5
+    }
+    .responsive-message {
+        padding: 20px;
+    }
+    .responsive-message>p {
+        text-align: justify;
+    }
 }

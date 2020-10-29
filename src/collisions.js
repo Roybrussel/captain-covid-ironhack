@@ -1,18 +1,27 @@
 // OFF-SCREEN DETECTION & DELETION
+let highscoreBtn = document.querySelector(".highscore");
 const isOffScreen = function () {
-  let offScreenCheck = setInterval(() => {
+  offScreenCheck = setInterval(() => {
     for (i = 3; i < world.bodies.length; i++) {
       // REMOVE VIRUS FROM WORLD AFTER REACHING BOTTOM OF SCREEN
       if (world.bodies[i].position.y > sizeH) {
         World.remove(world, world.bodies[i]);
         enemiesRemaining--;
         if (scoreCount > 0) {
-          scoreCount -= 5;
+          scoreCount -= 10;
           showHighscore[0].innerHTML = scoreCount;
           // INSERT SCORECOUNT BUTTON FLASH HERE FOR -5 POINTS
+          highscoreBtn.style.backgroundColor = "white";
+          highscoreBtn.style.color = "black";
+          setTimeout(() => {
+            highscoreBtn.style.backgroundColor = "#dc3545";
+            highscoreBtn.style.color = "white";
+          }, 300);
         }
         if (enemiesRemaining <= 0) {
-          stopWorld();
+          setTimeout(() => {
+            stopWorld();
+          }, 1000);
         }
       }
       // REMOVE AMMO FROM WORLD AFTER REACHING TOP OF SCREEN
@@ -25,12 +34,13 @@ const isOffScreen = function () {
 isOffScreen();
 
 // MUSIC FILES
-var mainTheme = new Audio("sound/captaincovidtheme.mp3");
-var levelUpSound = new Audio("sound/levelup.mp3");
-var gameOverSound = new Audio("sound/gameover.mp3");
-var laserShot = new Audio("sound/laser.mp3")
-var djTrump = new Audio("sound/djtrump.mp3")
-
+const mainTheme = new Audio("sound/captaincovidtheme.mp3");
+const levelUpSound = new Audio("sound/levelup.mp3");
+const gameOverSound = new Audio("sound/gameover.mp3");
+let laserShot = new Audio("sound/laser.mp3");
+const djTrump = new Audio("sound/djtrump.mp3");
+const shipExplosion = new Audio("sound/shipexplosion.mp3");
+const enemyExplosion = new Audio("sound/enemyexplosion.mp3");
 
 // SCORE COUNT
 let scoreCount = 0;
@@ -53,15 +63,19 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
       playerBody.isStatic = true;
       World.remove(world, bodyB);
       enemiesRemaining--;
+      shipExplosion.play();
     } else if (bodyA.id > 3 && bodyB.id > 3) {
       // COLLISION NEEDLE & VIRUS
       World.remove(world, bodyA);
       World.remove(world, bodyB);
-      scoreCount += 5;
+      scoreCount += 10;
       showHighscore[0].innerHTML = scoreCount;
       enemiesRemaining--;
+      enemyExplosion.play();
       if (enemiesRemaining <= 0) {
-        stopWorld();
+        setTimeout(() => {
+          stopWorld();
+        }, 2000);
       }
     }
   });
