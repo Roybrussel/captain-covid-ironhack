@@ -32,6 +32,8 @@ const levelUpSound = new Audio("sound/levelup.mp3");
 const gameOverSound = new Audio("sound/gameover.mp3");
 let laserShot = new Audio("sound/laser.mp3");
 const djTrump = new Audio("sound/djtrump.mp3");
+const shipExplosion = new Audio("sound/shipexplosion.mp3");
+const enemyExplosion = new Audio("sound/enemyexplosion.mp3");
 
 // SCORE COUNT
 let scoreCount = 0;
@@ -54,6 +56,7 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
       playerBody.isStatic = true;
       World.remove(world, bodyB);
       enemiesRemaining--;
+      shipExplosion.play();
     } else if (bodyA.id > 3 && bodyB.id > 3) {
       // COLLISION NEEDLE & VIRUS
       World.remove(world, bodyA);
@@ -61,6 +64,7 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
       scoreCount += 5;
       showHighscore[0].innerHTML = scoreCount;
       enemiesRemaining--;
+      enemyExplosion.play();
       if (enemiesRemaining <= 0) {
         setTimeout(() => {
           stopWorld();
