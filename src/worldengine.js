@@ -26,16 +26,20 @@ Render.run(render);
 Runner.run(Runner.create(), engine);
 
 // MUTE BUTTON
-const muteBtn = document.querySelector(".volume");
-const volumeIcon = document.querySelector(".volume-icon");
+const muteBtn = document.querySelector(".volume-icon");
+const volumeIcon = document.getElementsByClassName("volume-icon");
+const muteIcon = document.getElementsByClassName("mute-icon");
 let muted = false;
 muteBtn.addEventListener("click", (event) => {
   if (muted === false) {
     mainTheme.pause();
     muted = true;
+    volumeIcon[0].classList.remove = "fas fa-volume-up volume-icon"
+    volumeIcon[0].classList.add = "fas fa-volume-mute mute-icon"
   } else {
     mainTheme.play();
     muted = false;
+    muteIcon[0].classList = "fas fa-volume-up volume-icon"
   }
 });
 
