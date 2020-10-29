@@ -33,7 +33,7 @@ h1 {
 
 .btnholder {
     position: relative;
-    top: 446px;
+    top: 480px;
     display: flex;
     justify-content: center;
 }
@@ -83,21 +83,17 @@ h1 {
     text-align: center;
 }
 
-
 .responsive-container {
     display: none;
 }
-
 
 @media (max-width: 1200px) {
     canvas {
         display: none;
     }
-
     .main-container {
         display: none;
     }
-
     .responsive-container {
         height: 400px;
         width: 360px !important;
@@ -107,11 +103,9 @@ h1 {
         background-color: #ea5455;
         color: #e5e5e5
     }
-
     .responsive-message {
         padding: 20px;
     }
-
     .responsive-message>p {
         text-align: justify;
     }
