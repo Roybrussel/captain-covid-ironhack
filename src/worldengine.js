@@ -32,6 +32,7 @@ let muted = false;
 muteBtn.addEventListener("click", (event) => {
   if (muted === false) {
     mainTheme.pause();
+    volumeIcon[0].classList = "fas fa-volume-mute mute-icon";
     muted = true;
   } else {
     mainTheme.play();
