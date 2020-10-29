@@ -1,13 +1,18 @@
 # captain-covid-ironhack
 
-Captain, I'll be honest with you: Our strengths are crippled, and only the strong ones can survive. It has become clear that the enemy is not of human nature, but something more terrifying: CONTAGIOUS OVERSIZED VIRAL INFECTIOUS DISEASES (COVIDs). A new CLUSTER is on the way, and we need to act fast to ensure the safety of all Ironhackers!
+CLASSIFIED BULLETIN
+Captain, I'll be honest with you: Our defenses are crippled. It has become clear that the enemy is not of human nature, but something more terrifying: Contagious Oversized Viral Infectious Diseases (COVIDs)!
 
-Clinical trials are underway of an EXPERIMENTAL VACCINE against these COVIDs, but time is running out! We need humanity's best pilot on the job to deliver an injection directly into the cold, dead heart of each COVID. 
+A new cluster is onthe way, and we need you to deliver the experimental vaccine directly into the cold, dead hearts of each of these COVIDs. Your ship has been outfitted with the latest and greatest PPE (Personal Protective Engine) to assist you in your mission.
 
-You have just been outfitted with the latest and greatest PPE (PERSONAL PROTECTIVE ENGINE) to assist your fight. Your PPE display console contains your score count as well as your health meter; we've calculated that you can only withstand coming into direct contact with three COVIDs before succumbing. 
+How many COVIDs can you take on? Select your cluster difficulty level using the drop-down menu. Remember that each COVID that slips past your defenses counts against you, so choose wisely...
 
-How many COVIDs can you take on? Select your CLUSTER DIFFICULTY LEVEL using the drop-down menu. Remember, each COVID that slips past your defenses counts against your score count. Choose wisely, but never forget that humanity needs all the help it can get. 
+Your mission is clear, Captain: Emerge from your social-distancing lockdown to reclaim what belongs to us!
 
-Once you LAUNCH the mission, maneuver your PPE using the LEFT ARROW and RIGHT ARROW keys, delivering the injection payloads into the COVIDs with the SPACEBAR. 
 
-Captain, your mission is clear: Emerge from lockdown to reclaim what belongs to us! 
+
+
+GAME BUILT BY:
+ALEX KANTSADIS... @teof95
+ROY-ARNE BRUSSEL...@roybrussel
+RICH ALOSSI... @alossix
