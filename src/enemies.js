@@ -1,6 +1,6 @@
 //  LEVELS
 // let difficulty =1
-let difficulty
+let difficulty = 1;
 let numLives = 3;
 let interval, numEnemies, enemiesForce;
 

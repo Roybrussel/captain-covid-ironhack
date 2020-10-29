@@ -25,11 +25,19 @@ const render = Render.create({
 Render.run(render);
 Runner.run(Runner.create(), engine);
 
+// MUTE BUTTON
+const muteBtn = document.querySelector(".volume");
+const volumeIcon = document.querySelector(".volume-icon");
+muteBtn.addEventListener("click", (event) => {
+    mainTheme.pause();
+    laserShot.pause();
+    volumeIcon. = ""
+})
 
 const launchBtn = document.querySelector(".launch");
 let launchText = document.querySelector(".launchText");
 launchBtn.addEventListener("click", (event) => {
-    // mainTheme.play();
+    mainTheme.play();
 
     // level selector option 1
     let difficulty = (document.getElementById("dlevel").value)
@@ -73,6 +81,8 @@ function stopWorld() {
     Render.stop(render);
     // PLAYER REACHED END OF GAME
     if (enemiesRemaining <= 0) {
+        mainTheme.pause();
+        levelUpSound.play();
         if (scoreCount === 0) {
             alert(
                 `YOU'VE BEEN WORKING FROM HOME TOO LONG! You made it to the end but didn't score any points!`

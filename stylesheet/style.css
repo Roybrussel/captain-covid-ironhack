@@ -53,6 +53,10 @@ h1 {
     align-items: center;
 }
 
+.volume:hover {
+    color: #000;
+}
+
 .lives {
     width: 135px !important;
     height: 100%;
