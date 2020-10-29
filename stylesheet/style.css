@@ -17,6 +17,7 @@ h1 {
     font-family: 'Revalia', cursive;
     font-size: 75px !important;
 }
+
 .topredholder {
     height: 70px;
     width: 1000px;
@@ -29,12 +30,14 @@ h1 {
     border-left: 10px solid #000;
     border-right: 10px solid #000;
 }
+
 .btnholder {
     position: relative;
     top: 446px;
     display: flex;
     justify-content: center;
 }
+
 .launch {
     width: 205px !important;
     height: 65px !important;
@@ -74,4 +77,38 @@ h1 {
 
 .container {
     text-align: center;
+}
+
+
+.responsive-container {
+    display: none;
+}
+
+
+@media (max-width: 1200px) {
+    canvas {
+        display: none;
+    }
+
+    .main-container {
+        display: none;
+    }
+
+    .responsive-container {
+        height: 400px;
+        width: 360px !important;
+        margin-top: 50px;
+        border-radius: 10px;
+        display: flex;
+        background-color: #ea5455;
+        color: #e5e5e5
+    }
+
+    .responsive-message {
+        padding: 20px;
+    }
+
+    .responsive-message>p {
+        text-align: justify;
+    }
 }
