@@ -12,10 +12,21 @@ canvas {
     border-left: 10px solid #000;
     border-right: 10px solid #000;
 }
-
 h1 {
-    font-family: 'Revalia', cursive;
     font-size: 75px !important;
+}
+h1, h2, h3 {
+    font-family: 'Revalia', cursive;
+    text-align: center;
+}
+h3 {
+    padding: 1rem 0rem;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .topredholder {
@@ -32,17 +43,18 @@ h1 {
 }
 
 .btnholder {
-    position: relative;
-    top: 480px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .launch {
     width: 205px !important;
     height: 65px !important;
     font-size: 2em !important;
-    position: absolute;
+}
+.level {
+    padding: 1rem 0rem;
 }
 
 .volume {
@@ -60,10 +72,7 @@ h1 {
 .lives {
     width: 135px !important;
     height: 100%;
-    /* margin-top: 25px !important; */
     font-size: 2em !important;
-    /* position: absolute !important; */
-    /* margin-left: 26px; */
     pointer-events: none;
     padding-left: 1rem;
 }
@@ -71,20 +80,23 @@ h1 {
 .highscore {
     width: 135px !important;
     height: 100%;
-    /* margin-top: 25px !important; */
     font-size: 2em !important;
-    /* position: absolute !important; */
-    /* margin-left: 837px; */
     pointer-events: none;
     padding-right: 1rem;
 }
-
 .container {
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
 .responsive-container {
     display: none;
+}
+
+.story {
+    padding: 1.5rem 0rem;
+    width: 55vw;
 }
 
 @media (max-width: 1200px) {

@@ -14,7 +14,8 @@ engine.world.gravity.y = 0;
 Body.frictionStatic = 0;
 const { world } = engine;
 const render = Render.create({
-  element: document.body,
+  canvas: document.querySelector("#canvas-area"),
+  // element: document.body,
   engine: engine,
   options: {
     width: 1000,
@@ -34,12 +35,12 @@ muteBtn.addEventListener("click", (event) => {
   if (muted === false) {
     mainTheme.pause();
     muted = true;
-    volumeIcon[0].classList.remove = "fas fa-volume-up volume-icon"
-    volumeIcon[0].classList.add = "fas fa-volume-mute mute-icon"
+    volumeIcon[0].classList.remove = "fas fa-volume-up volume-icon";
+    volumeIcon[0].classList.add = "fas fa-volume-mute mute-icon";
   } else {
     mainTheme.play();
     muted = false;
-    muteIcon[0].classList = "fas fa-volume-up volume-icon"
+    muteIcon[0].classList = "fas fa-volume-up volume-icon";
   }
 });
 
@@ -64,6 +65,7 @@ launchBtn.addEventListener("click", (event) => {
     enemiesForce = 0.0013;
   }
   document.querySelector(".level").style.visibility = "hidden";
+  document.querySelector(".story").style.visibility = "hidden";
   enemyStart();
 });
 let sizeW = render.options.width;
@@ -132,6 +134,6 @@ function stopWorld() {
         );
       }
     }
-  }, 1000);
+  }, 1200);
   clearInterval(offScreenCheck);
 }
