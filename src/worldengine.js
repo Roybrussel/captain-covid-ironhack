@@ -44,6 +44,7 @@ muteBtn.addEventListener("click", (event) => {
   }
 });
 
+// LEVEL SELECTORS
 const launchBtn = document.querySelector(".launch");
 let launchText = document.querySelector(".launchText");
 let difficulty, interval, numEnemies, enemiesForce, enemiesRemaining;

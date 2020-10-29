@@ -46,14 +46,14 @@ const enemyExplosion = new Audio("sound/enemyexplosion.mp3");
 let scoreCount = 0;
 let showHighscore = document.getElementsByClassName("highscore");
 
+// LAUNCH BUTTON
+let launchBtnIcon = document.getElementsByClassName("rocket-icon");
+let launchBtnText = document.querySelector(".launchText");
+
 // LIVES
 let life3 = document.getElementsByClassName("life3");
 let life2 = document.getElementsByClassName("life2");
 let life1 = document.getElementsByClassName("life1");
-
-// LAUNCH BUTTON
-let launchBtnIcon = document.getElementsByClassName("rocket-icon");
-let launchBtnText = document.querySelector(".launchText");
 
 // START OF COLLISION:
 // COLLISION OF SHIP (ID 3) WITH VIRUS (ID > 3)

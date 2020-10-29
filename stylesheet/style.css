@@ -4,6 +4,7 @@ RED/PINK: #ea5455
 BEIGE: #decdc3
 GREY/WHITE: #e5e5e5 */
 
+/* CANVAS STYLING */
 canvas {
     background-color: #2d4059 !important;
     width: 1000px !important;
@@ -12,16 +13,24 @@ canvas {
     border-left: 10px solid #000;
     border-right: 10px solid #000;
 }
+
+/* HEADINGS */
 h1 {
-    font-size: 75px !important;
+    font-size: 5em !important;
 }
-h1, h2, h3 {
-    font-family: 'Revalia', cursive;
-    text-align: center;
-}
+
 h3 {
     padding: 1rem 0rem;
 }
+
+h1,
+h2,
+h3 {
+    font-family: 'Revalia', cursive;
+    text-align: center;
+}
+
+/* CONTAINERS */
 .main-container {
     display: flex;
     flex-direction: column;
@@ -29,6 +38,13 @@ h3 {
     align-items: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* RED LIVES - VOLUME - HIGHSCORE BAR */
 .topredholder {
     height: 70px;
     width: 1000px;
@@ -40,21 +56,6 @@ h3 {
     border-top: 10px solid #000;
     border-left: 10px solid #000;
     border-right: 10px solid #000;
-}
-
-.btnholder {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.launch {
-    width: 205px !important;
-    height: 65px !important;
-    font-size: 2em !important;
-}
-.level {
-    padding: 1rem 0rem;
 }
 
 .volume {
@@ -84,28 +85,44 @@ h3 {
     pointer-events: none;
     padding-right: 1rem;
 }
-.container {
+
+/* LAUNCH AND LEVEL BUTTONS */
+.btnholder {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    text-align: center;
 }
 
-.responsive-container {
-    display: none;
+.level {
+    padding: 1rem 0rem;
 }
 
+.launch {
+    width: 205px !important;
+    height: 65px !important;
+    font-size: 2em !important;
+}
+
+/* STORYTELLING */
 .story {
     padding: 1.5rem 0rem;
     width: 55vw;
+}
+
+/* RESPONSIVE MESSAGE */
+.responsive-container {
+    display: none;
 }
 
 @media (max-width: 1200px) {
     canvas {
         display: none;
     }
+
     .main-container {
         display: none;
     }
+
     .responsive-container {
         height: 400px;
         width: 360px !important;
@@ -115,9 +132,11 @@ h3 {
         background-color: #ea5455;
         color: #e5e5e5
     }
+
     .responsive-message {
         padding: 20px;
     }
+
     .responsive-message>p {
         text-align: justify;
     }
