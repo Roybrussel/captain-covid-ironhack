@@ -10,4 +10,4 @@ How many VBs can you take on? Select your DIFFICULTY LEVEL using the drop-down m
 
 Once you're ready to LAUNCH the mission, maneuver your PPE using the LEFT ARROW and RIGHT ARROW keys, delivering the injection payloads into the VBs with the SPACEBAR. 
 
-Captain Covid, we're counting on you.  Don't fail us!
+We're counting on you, Captain.  Don't fail us!
