@@ -26,12 +26,11 @@ Render.run(render);
 Runner.run(Runner.create(), engine);
 
 // MUTE BUTTON
-const muteBtn = document.querySelector(".volume");
-const volumeIcon = document.querySelector(".volume-icon");
+const muteBtn = document.querySelector(".volume-icon");
+const volumeIcon = document.getElementsByClassName("volume-icon");
 muteBtn.addEventListener("click", (event) => {
     mainTheme.pause();
-    laserShot.pause();
-
+    volumeIcon[0].classList = "fas fa-volume-mute mute-icon"
 })
 
 const launchBtn = document.querySelector(".launch");
