@@ -26,34 +26,22 @@ Render.run(render);
 Runner.run(Runner.create(), engine);
 
 // MUTE BUTTON
-<<<<<<< HEAD
 const muteBtn = document.querySelector(".volume-icon");
 const volumeIcon = document.getElementsByClassName("volume-icon");
-let muted = false;
-muteBtn.addEventListener("click", (event) => {
-    if (muted = false) {
-    mainTheme.pause();
-    muted = true;
-    volumeIcon[0].classList = "fas fa-volume-mute mute-icon"
-    } else {
-        mainTheme.play();
-        muted = false
-    }
-})
-=======
-const muteBtn = document.querySelector(".volume");
-const volumeIcon = document.querySelector(".volume-icon");
+const muteIcon = document.getElementsByClassName("mute-icon");
 let muted = false;
 muteBtn.addEventListener("click", (event) => {
   if (muted === false) {
     mainTheme.pause();
     muted = true;
+    volumeIcon[0].classList.remove = "fas fa-volume-up volume-icon"
+    volumeIcon[0].classList.add = "fas fa-volume-mute mute-icon"
   } else {
     mainTheme.play();
     muted = false;
+    muteIcon[0].classList = "fas fa-volume-up volume-icon"
   }
 });
->>>>>>> 862d57b9b58c0b501f2c609f64c85fbe640f4e3c
 
 const launchBtn = document.querySelector(".launch");
 let launchText = document.querySelector(".launchText");
