@@ -1,7 +1,7 @@
 // OFF-SCREEN DETECTION & DELETION
 let highscoreBtn = document.querySelector(".highscore");
 const isOffScreen = function () {
-  let offScreenCheck = setInterval(() => {
+  offScreenCheck = setInterval(() => {
     for (i = 3; i < world.bodies.length; i++) {
       // REMOVE VIRUS FROM WORLD AFTER REACHING BOTTOM OF SCREEN
       if (world.bodies[i].position.y > sizeH) {
@@ -73,9 +73,7 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
       enemiesRemaining--;
       enemyExplosion.play();
       if (enemiesRemaining <= 0) {
-        setTimeout(() => {
-          stopWorld();
-        }, 1000);
+        stopWorld();
       }
     }
   });

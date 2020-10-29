@@ -59,13 +59,13 @@ launchBtn.addEventListener("click", (event) => {
       numEnemies = 50;
       enemiesForce = 0.0009;
     } else if (difficulty == 2) {
-      interval = 1200;
-      numEnemies = 75;
-      enemiesForce = 0.0011;
-    } else if (difficulty == 3) {
       interval = 900;
-      numEnemies = 100;
+      numEnemies = 75;
       enemiesForce = 0.0013;
+    } else if (difficulty == 3) {
+      interval = 750;
+      numEnemies = 100;
+      enemiesForce = 0.0015;
     }
     document.querySelector(".level").style.visibility = "hidden";
     document.querySelector(".story").style.visibility = "hidden";
@@ -98,8 +98,8 @@ World.add(world, walls);
 
 // STOP WORLD ON DEATH
 let offScreenCheck = 0;
-
 function stopWorld() {
+  clearInterval(offScreenCheck);
   World.clear(world);
   Engine.clear(engine);
   Render.stop(render);
@@ -107,21 +107,22 @@ function stopWorld() {
   if (enemiesRemaining <= 0) {
     mainTheme.pause();
     levelUpSound.play();
-    // document.querySelector(".level").style.visibility = "visible";
   }
   setTimeout(() => {
-    if (scoreCount === 0) {
-      alert(
-        `CAPTAIN, YOU'VE BEEN WORKING FROM HOME TOO LONG! You made it to the end but didn't score any points!`
-      );
-    } else if (scoreCount > 0 && scoreCount < 200) {
-      alert(
-        `CAPTAIN, YOU'VE MADE IT TO THE END AND HAVE HELPED HUMANITY'S FIGHT AGAINST THE VIRUS!!! You scored ${scoreCount} points!`
-      );
-    } else if (scoreCount > 200) {
-      alert(
-        `PANDEMIC-FIGHTING SKILLS FOR THE WIN, CAPTAIN!!! You scored ${scoreCount} points!`
-      );
+    if (enemiesRemaining === 0) {
+      if (scoreCount === 0) {
+        alert(
+          `CAPTAIN, YOU'VE BEEN WORKING FROM HOME TOO LONG! You made it to the end but didn't score any points!`
+        );
+      } else if (scoreCount > 0 && scoreCount < 200) {
+        alert(
+          `CAPTAIN, YOU'VE MADE IT TO THE END AND HAVE HELPED HUMANITY'S FIGHT AGAINST THE VIRUS!!! You scored ${scoreCount} points!`
+        );
+      } else if (scoreCount > 200) {
+        alert(
+          `PANDEMIC-FIGHTING SKILLS FOR THE WIN, CAPTAIN!!! You scored ${scoreCount} points!`
+        );
+      }
     } else if (enemiesRemaining > 0) {
       if (scoreCount === 0) {
         alert(
@@ -142,5 +143,4 @@ function stopWorld() {
       }
     }
   }, 1200);
-  clearInterval(offScreenCheck);
 }
