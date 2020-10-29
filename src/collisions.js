@@ -12,7 +12,9 @@ const isOffScreen = function () {
           // INSERT SCORECOUNT BUTTON FLASH HERE FOR -5 POINTS
         }
         if (enemiesRemaining <= 0) {
-          stopWorld();
+          setTimeout(() => {
+            stopWorld();
+          }, 3000);
         }
       }
       // REMOVE AMMO FROM WORLD AFTER REACHING TOP OF SCREEN
@@ -28,9 +30,8 @@ isOffScreen();
 var mainTheme = new Audio("sound/captaincovidtheme.mp3");
 var levelUpSound = new Audio("sound/levelup.mp3");
 var gameOverSound = new Audio("sound/gameover.mp3");
-var laserShot = new Audio("sound/laser.mp3")
-var djTrump = new Audio("sound/djtrump.mp3")
-
+var laserShot = new Audio("sound/laser.mp3");
+var djTrump = new Audio("sound/djtrump.mp3");
 
 // SCORE COUNT
 let scoreCount = 0;
@@ -61,7 +62,9 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
       showHighscore[0].innerHTML = scoreCount;
       enemiesRemaining--;
       if (enemiesRemaining <= 0) {
-        stopWorld();
+        setTimeout(() => {
+          stopWorld();
+        }, 3000);
       }
     }
   });

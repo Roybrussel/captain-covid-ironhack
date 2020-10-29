@@ -6,7 +6,7 @@ let interval, numEnemies, enemiesForce;
 // LOW DIFFICULTY
 if (difficulty === 1) {
   interval = 1500;
-  numEnemies = 50;
+  numEnemies = 5;
   enemiesForce = 0.0009;
 }
 // MEDIUM DIFFICULTY
