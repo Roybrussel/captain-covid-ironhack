@@ -99,6 +99,7 @@ World.add(world, walls);
 // STOP WORLD ON DEATH
 let offScreenCheck = 0;
 function stopWorld() {
+  document.querySelector(".scoreholder button").classList.remove("highscore");
   clearInterval(offScreenCheck);
   World.clear(world);
   Engine.clear(engine);
