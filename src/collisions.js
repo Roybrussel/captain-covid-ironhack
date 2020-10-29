@@ -71,9 +71,7 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
       enemiesRemaining--;
       enemyExplosion.play();
       if (enemiesRemaining <= 0) {
-        setTimeout(() => {
-          stopWorld();
-        }, 3000);
+        stopWorld();
       }
     }
   });
