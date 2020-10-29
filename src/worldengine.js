@@ -28,11 +28,16 @@ Runner.run(Runner.create(), engine);
 // MUTE BUTTON
 const muteBtn = document.querySelector(".volume");
 const volumeIcon = document.querySelector(".volume-icon");
+let muted = false;
 muteBtn.addEventListener("click", (event) => {
+  if (muted === false) {
     mainTheme.pause();
-    laserShot.pause();
-
-})
+    muted = true;
+  } else {
+    mainTheme.play();
+    muted = false;
+  }
+});
 
 const launchBtn = document.querySelector(".launch");
 let launchText = document.querySelector(".launchText");
@@ -81,40 +86,44 @@ World.add(world, walls);
 let offScreenCheck = 0;
 
 function stopWorld() {
-    World.clear(world);
-    Engine.clear(engine);
-    Render.stop(render);
-    // PLAYER REACHED END OF GAME
-    if (enemiesRemaining <= 0) {
-        mainTheme.pause();
-        levelUpSound.play();
-        if (scoreCount === 0) {
-            alert(
-                `YOU'VE BEEN WORKING FROM HOME TOO LONG! You made it to the end but didn't score any points!`
-            );
-        } else if (scoreCount > 0 && scoreCount < 200) {
-            alert(`YOU MADE IT TO THE END!!! You scored ${scoreCount} points!`);
-        } else if (scoreCount > 200) {
-            alert(
-                `PANDEMIC-FIGHTING SKILLS FOR THE WIN!!! You scored ${scoreCount} points!`
-            );
-        }
+  World.clear(world);
+  Engine.clear(engine);
+  Render.stop(render);
+  // PLAYER REACHED END OF GAME
+  if (enemiesRemaining <= 0) {
+    mainTheme.pause();
+    levelUpSound.play();
+    if (scoreCount === 0) {
+      alert(
+        `CAPTAIN, YOU'VE BEEN WORKING FROM HOME TOO LONG! You made it to the end but didn't score any points!`
+      );
+    } else if (scoreCount > 0 && scoreCount < 200) {
+      alert(
+        `CAPTAIN, YOU'VE MADE IT TO THE END AND HAVE HELPED HUMANITY'S FIGHT AGAINST THE VIRUS!!! You scored ${scoreCount} points!`
+      );
+    } else if (scoreCount > 200) {
+      alert(
+        `PANDEMIC-FIGHTING SKILLS FOR THE WIN, CAPTAIN!!! You scored ${scoreCount} points!`
+      );
+    }
 
     // PLAYER DID NOT REACH END OF GAME
   } else if (enemiesRemaining > 0) {
     if (scoreCount === 0) {
-      alert(`GAME OVER! You didn't score any points? Fake news!`);
+      alert(
+        `GAME OVER! Captain, you didn't score any points? Must be fake news!`
+      );
     } else if (scoreCount > 0 && scoreCount < 100) {
       alert(
-        `GAME OVER! Lockdown must be getting to your head. You only scored ${scoreCount} points!`
+        `GAME OVER! Captain, lockdown must be getting to your head. You only scored ${scoreCount} points!`
       );
     } else if (scoreCount > 100 && scoreCount < 200) {
       alert(
-        `GAME OVER! Nice social distancing skills! You scored ${scoreCount} points!`
+        `GAME OVER! Nice social distancing skills, Captain! You scored ${scoreCount} points!`
       );
     } else if (scoreCount > 200) {
       alert(
-        `GAME OVER! Wow, your vaccine delivery skills are off the charts! You scored ${scoreCount} points!`
+        `GAME OVER! Wow, Captain, your vaccine delivery skills are off the charts! You scored ${scoreCount} points!`
       );
     }
   }
