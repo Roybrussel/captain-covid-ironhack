@@ -28,9 +28,16 @@ Runner.run(Runner.create(), engine);
 // MUTE BUTTON
 const muteBtn = document.querySelector(".volume-icon");
 const volumeIcon = document.getElementsByClassName("volume-icon");
+let muted = false;
 muteBtn.addEventListener("click", (event) => {
+    if (muted = false) {
     mainTheme.pause();
+    muted = true;
     volumeIcon[0].classList = "fas fa-volume-mute mute-icon"
+    } else {
+        mainTheme.play();
+        muted = false
+    }
 })
 
 const launchBtn = document.querySelector(".launch");
