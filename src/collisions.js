@@ -19,9 +19,7 @@ const isOffScreen = function () {
           }, 300);
         }
         if (enemiesRemaining <= 0) {
-          setTimeout(() => {
-            stopWorld();
-          }, 3000);
+          stopWorld();
         }
       }
       // REMOVE AMMO FROM WORLD AFTER REACHING TOP OF SCREEN
