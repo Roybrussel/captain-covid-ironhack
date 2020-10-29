@@ -8,7 +8,7 @@ const isOffScreen = function () {
         World.remove(world, world.bodies[i]);
         enemiesRemaining--;
         if (scoreCount > 0) {
-          scoreCount -= 5;
+          scoreCount -= 10;
           showHighscore[0].innerHTML = scoreCount;
           // INSERT SCORECOUNT BUTTON FLASH HERE FOR -5 POINTS
           highscoreBtn.style.backgroundColor = "white";
@@ -19,7 +19,9 @@ const isOffScreen = function () {
           }, 300);
         }
         if (enemiesRemaining <= 0) {
-          stopWorld();
+          setTimeout(() => {
+            stopWorld();
+          }, 1000);
         }
       }
       // REMOVE AMMO FROM WORLD AFTER REACHING TOP OF SCREEN
@@ -66,12 +68,14 @@ Events.on(engine, "collisionStart", ({ pairs }) => {
       // COLLISION NEEDLE & VIRUS
       World.remove(world, bodyA);
       World.remove(world, bodyB);
-      scoreCount += 5;
+      scoreCount += 10;
       showHighscore[0].innerHTML = scoreCount;
       enemiesRemaining--;
       enemyExplosion.play();
       if (enemiesRemaining <= 0) {
-        stopWorld();
+        setTimeout(() => {
+          stopWorld();
+        }, 1000);
       }
     }
   });

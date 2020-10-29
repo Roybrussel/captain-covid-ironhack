@@ -47,26 +47,33 @@ muteBtn.addEventListener("click", (event) => {
 const launchBtn = document.querySelector(".launch");
 let launchText = document.querySelector(".launchText");
 let difficulty, interval, numEnemies, enemiesForce, enemiesRemaining;
+let launchClicked = false;
 
 launchBtn.addEventListener("click", (event) => {
-  mainTheme.play();
-  difficulty = document.getElementById("dlevel").value;
-  if (difficulty == 1) {
-    interval = 1500;
-    numEnemies = 50;
-    enemiesForce = 0.0009;
-  } else if (difficulty == 2) {
-    interval = 1200;
-    numEnemies = 75;
-    enemiesForce = 0.0011;
-  } else if (difficulty == 3) {
-    interval = 900;
-    numEnemies = 100;
-    enemiesForce = 0.0013;
+  if (launchClicked === false) {
+    launchClicked = true;
+    mainTheme.play();
+    difficulty = document.getElementById("dlevel").value;
+    if (difficulty == 1) {
+      interval = 1500;
+      numEnemies = 50;
+      enemiesForce = 0.0009;
+    } else if (difficulty == 2) {
+      interval = 1200;
+      numEnemies = 75;
+      enemiesForce = 0.0011;
+    } else if (difficulty == 3) {
+      interval = 900;
+      numEnemies = 100;
+      enemiesForce = 0.0013;
+    }
+    document.querySelector(".level").style.visibility = "hidden";
+    document.querySelector(".story").style.visibility = "hidden";
+    launchText.innerText = "RESET";
+    enemyStart();
+  } else {
+    window.location.reload();
   }
-  document.querySelector(".level").style.visibility = "hidden";
-  document.querySelector(".story").style.visibility = "hidden";
-  enemyStart();
 });
 let sizeW = render.options.width;
 let sizeH = render.options.height;
@@ -100,7 +107,7 @@ function stopWorld() {
   if (enemiesRemaining <= 0) {
     mainTheme.pause();
     levelUpSound.play();
-    document.querySelector(".level").style.visibility = "visible";
+    // document.querySelector(".level").style.visibility = "visible";
   }
   setTimeout(() => {
     if (scoreCount === 0) {
