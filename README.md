@@ -1,7 +1,8 @@
 # captain-covid-ironhack
 
 CLASSIFIED BULLETIN
-Captain, I'll be honest with you: Our defenses are crippled. It has become clear that the enemy is not of human nature, but something more terrifying: Contagious Oversized Viral Infectious Diseases (COVIDs)!
+Captain, I'll be honest with you: Our defenses are crippled. It has become clear that the enemy is not of human nature, but something more terrifying: 
+Catastrophic Oversized Viral Infectious Diseases (COVIDs)!
 
 A new cluster is onthe way, and we need you to deliver the experimental vaccine directly into the cold, dead hearts of each of these COVIDs. Your ship has been outfitted with the latest and greatest PPE (Personal Protective Engine) to assist you in your mission.
 
