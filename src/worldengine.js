@@ -116,9 +116,9 @@ function stopWorld() {
         alert(
           `CAPTAIN, YOU'VE BEEN WORKING FROM HOME TOO LONG! You made it to the end but didn't score any points!`
         );
-      } else if (scoreCount > 0 && scoreCount < 200) {
+      } else if (scoreCount > 0 && scoreCount <= 200) {
         alert(
-          `CAPTAIN, YOU'VE MADE IT TO THE END AND HAVE HELPED HUMANITY'S FIGHT AGAINST THE VIRUS!!! You scored ${scoreCount} points!`
+          `CAPTAIN, YOUR VACCINE "TRIAL" HAS HELPED HUMANITY'S FIGHT AGAINST COVID!!! You scored ${scoreCount} points!`
         );
       } else if (scoreCount > 200) {
         alert(
@@ -127,14 +127,12 @@ function stopWorld() {
       }
     } else if (enemiesRemaining > 0) {
       if (scoreCount === 0) {
-        alert(
-          `GAME OVER! Captain, you didn't score any points? Must be fake news!`
-        );
-      } else if (scoreCount > 0 && scoreCount < 100) {
+        alert(`GAME OVER! Captain, you didn't score any points? Fake news!`);
+      } else if (scoreCount > 0 && scoreCount <= 100) {
         alert(
           `GAME OVER! Captain, lockdown must be getting to your head. You only scored ${scoreCount} points!`
         );
-      } else if (scoreCount > 100 && scoreCount < 200) {
+      } else if (scoreCount > 100 && scoreCount <= 200) {
         alert(
           `GAME OVER! Nice social distancing skills, Captain! You scored ${scoreCount} points!`
         );
