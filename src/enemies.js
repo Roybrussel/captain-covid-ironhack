@@ -1,4 +1,4 @@
-//  LEVELS
+//  LIVES
 let numLives = 3;
 
 // CREATE ENEMIES
