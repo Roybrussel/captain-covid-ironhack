@@ -1,105 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Captain Covid</title>
+    <!-- STYLES -->
+    <link rel="stylesheet" href="stylesheet/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Revalia&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <!-- SCRIPTS -->
+    <script
+      src="https://kit.fontawesome.com/085e73845a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Captain Covid</title>
-  <!-- STYLES -->
-  <link rel="stylesheet" href="stylesheet/style.css" />
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
-  <!-- SCRIPTS -->
-  <script src="https://kit.fontawesome.com/085e73845a.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <!-- THE GAME -->
-  <div class="main-container">
-    <div class="container">
-      <h1>Captain Covid</h1>
-      <div class="topredholder">
-        <div class="livesholder">
-          <button class="btn btn-danger lives">
-            <i class="fas fa-star life1"></i><i class="fas fa-star life2"></i><i class="fas fa-star life3"></i>
-          </button>
-        </div>
-        <div class="volume"><i class="fas fa-volume-up volume-icon"></i></div>
-        <div class="scoreholder">
-          <button class="btn btn-danger highscore highscore2">0</button>
+  <body>
+    <!-- THE GAME -->
+    <div class="main-container">
+      <div class="container">
+        <h1>Captain Covid</h1>
+        <div class="topredholder">
+          <div class="livesholder">
+            <button class="btn btn-danger lives">
+              <i class="fas fa-star life1"></i><i class="fas fa-star life2"></i
+              ><i class="fas fa-star life3"></i>
+            </button>
+          </div>
+          <div class="volume"><i class="fas fa-volume-up volume-icon"></i></div>
+          <div class="scoreholder">
+            <button class="btn btn-danger highscore highscore2">0</button>
+          </div>
         </div>
       </div>
-    </div>
-    <canvas id="canvas-area" class="canvas-area"></canvas>
-    <div class="btnholder">
-      <div class="level">
-        <label for="level">Cluster Difficulty Level:</label>
-        <select name="difficulty" id="dlevel">
-          <option value="1">Level 1 - Kill for fun</option>
-          <option value="2">Level 2 - Too good to die</option>
-          <option value="3">Level 3 - Heaven and Hell</option>
-        </select>
+      <canvas id="canvas-area" class="canvas-area"></canvas>
+      <div class="btnholder">
+        <div class="level">
+          <label for="level">Cluster Difficulty Level:</label>
+          <select name="difficulty" id="dlevel">
+            <option value="1">Level 1 - Kill for fun</option>
+            <option value="2">Level 2 - Too good to die</option>
+            <option value="3">Level 3 - Heaven and Hell</option>
+          </select>
+        </div>
+        <button class="btn btn-danger launch">
+          <span class="launchText">LAUNCH</span>
+          <i class="fas fa-rocket rocket-icon"></i>
+        </button>
       </div>
-      <button class="btn btn-danger launch">
-        <span class="launchText">LAUNCH</span>
-        <i class="fas fa-rocket rocket-icon"></i>
-      </button>
+      <div class="story">
+        <h3>CLASSIFIED BULLETIN</h3>
+        <p>
+          Captain, I'll be honest with you: Our defenses are crippled. It has
+          become clear that the enemy is not of human nature, but something more
+          terrifying:<br />
+          <strong
+            ><em
+              >Catastrophic Oversized Vectors of Infectious Disease (COVIDs)</em
+            ></strong
+          >!
+        </p>
+        <p>
+          A new cluster is on the way, and we need you to deliver the
+          <strong><em>experimental vaccine</em></strong> directly into the cold,
+          dead hearts of each of these COVIDs. Your ship has been outfitted with
+          the latest and greatest
+          <strong><em>PPE (Personal Protective Engine)</em></strong> to assist
+          you in your mission.
+        </p>
+        <p>
+          How many COVIDs can you take on? Select your
+          <strong><em>cluster difficulty level</em></strong> using the drop-down
+          menu. Remember that each COVID that slips past your defenses counts
+          against you, so choose wisely...
+        </p>
+        <p>
+          Your mission is clear, Captain: Emerge from your social-distancing
+          lockdown to reclaim what belongs to us. We're counting on you!
+        </p>
+        <h3>INSTRUCTIONS</h3>
+        <p>
+          <strong>LAUNCH</strong> the mission, maneuvering with
+          <strong>LEFT and RIGHT ARROW</strong>. Deliver the injections with the
+          <strong>SPACEBAR</strong>. Don't let the COVIDs slip past your
+          defenses!
+        </p>
+      </div>
     </div>
-    <div class="story">
-      <h3>CLASSIFIED BULLETIN</h3>
-      <p>
-        Captain, a cluster of
-        <strong><em>Contagious Oversized Viral Infectious Diseases (COVIDs)</em></strong>
-        is on the way!
-      </p>
-      <p>
-        We need you to deliver the
-        <strong><em>experimental vaccine</em></strong> directly into the cold,
-        dead hearts of these COVIDs. You have just received the latest and
-        greatest <strong><em>PPE (Personal Protective Engine)</em></strong> to
-        assist you in your mission.
-      </p>
-      <p>
-        Select your <strong><em>cluster difficulty level</em></strong> using
-        the drop-down menu. Choose wisely... we're counting on you!
-      </p>
-      <p>
-        Your mission is clear, Captain: Emerge from your social-distancing
-        lockdown to reclaim what belongs to us!
-      </p>
-      <h3>INSTRUCTIONS</h3>
-      <p>
-        <strong>LAUNCH</strong> the mission, maneuvering with
-        <strong>LEFT and RIGHT ARROW</strong>. Deliver the injections with the
-        <strong>SPACEBAR</strong>. Don't let the COVIDs slip past your
-        defenses!
-      </p>
+    <!-- RESPONSIVE MESSAGE -->
+    <div class="container responsive-container">
+      <div class="container responsive-message">
+        <h4>Oooops!</h4>
+        <h5>Something must've gone wrong.</h5>
+        <p>
+          Captain Covid requires you to play at a minimum resolution width of
+          1200 pixels. Please report back as soon as you have met the
+          requirements.<br /><br />This mission is to re-claim what belongs to
+          us. Our strengths on our planet are crippled and only the strong ones
+          will survive. It is become clear that the enemy is not of human
+          nature, but something more terrifying. We need to ensure the safety of
+          all Ironhackers.
+        </p>
+      </div>
     </div>
-  </div>
-  <!-- RESPONSIVE MESSAGE -->
-  <div class="container responsive-container">
-    <div class="container responsive-message">
-      <h4>Oooops!</h4>
-      <h5>Something must've gone wrong.</h5>
-      <p>
-        Captain Covid requires you to play at a minimum resolution width of
-        1200 pixels. Please report back as soon as you have met the
-        requirements.<br /><br />This mission is to re-claim what belongs to
-        us. Our strengths on our planet are crippled and only the strong ones
-        will survive. It is become clear that the enemy is not of human
-        nature, but something more terrifying. We need to ensure the safety of
-        all Ironhackers.
-      </p>
-    </div>
-  </div>
-  <!-- JAVASCRIPT SCRIPTS -->
-  <script src="src/worldengine.js"></script>
-  <script src="src/player.js"></script>
-  <script src="src/enemies.js"></script>
-  <script src="src/collisions.js"></script>
-</body>
-
+    <!-- JAVASCRIPT SCRIPTS -->
+    <script src="src/worldengine.js"></script>
+    <script src="src/player.js"></script>
+    <script src="src/enemies.js"></script>
+    <script src="src/collisions.js"></script>
+  </body>
 </html>
